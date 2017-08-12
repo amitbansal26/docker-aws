@@ -25,7 +25,7 @@ public class DockerRestApiApplication {
 	@Bean
 	public DockerClient dockerClient() {
 		DockerClientConfig config = DefaultDockerClientConfig.createDefaultConfigBuilder()
-				  .withDockerHost("tcp://localhost:2376")
+				  .withDockerHost("tcp://localhost:2375")
 				  .withRegistryUsername("")
 				  .withRegistryPassword("")
 				  .withRegistryEmail("")

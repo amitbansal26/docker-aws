@@ -13,6 +13,7 @@ import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3ClientBuilder;
 import com.amazonaws.services.s3.model.PutObjectRequest;
 import com.amazonaws.services.s3.model.PutObjectResult;
+import com.amazonaws.services.s3.model.S3Object;
 import com.amazonaws.services.s3.model.S3ObjectInputStream;
 import com.amazonaws.services.securitytoken.AWSSecurityTokenService;
 import com.amazonaws.services.securitytoken.AWSSecurityTokenServiceClientBuilder;
@@ -39,8 +40,8 @@ public class AmazonS3Template {
     }
 
     
-    public S3ObjectInputStream get(String key) {
-        return getAmazonS3Client().getObject(defaultBucket, key).getObjectContent();
+    public S3Object get(String key) {
+        return getAmazonS3Client().getObject(defaultBucket, key);
     }
 
     

@@ -1,5 +1,7 @@
 package com.docker.rest.api.controller;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +28,7 @@ public class DockerRestController {
    
 	@GetMapping("/")
 	public String fetchDockerFile() throws FileNotFoundException {
-		dockerClient.buildImageCmd(s3Template.get("amit"))
+		dockerClient.buildImageCmd().withDockerfile(new File("D:\\Dockerfile")).withNoCache(true).withPull(true)
 	     .exec(new BuildImageResultCallback()).awaitImageId();
 	     return "success";
 	}
